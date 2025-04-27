@@ -1,139 +1,119 @@
 import Link from "next/link"
-import { Shield, Mail } from "lucide-react"
+import { Shield, Mail, Github, Linkedin } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Footer from "@/components/footer"
 import Image from "next/image"
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex-grow bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <div className="flex justify-center mb-4">
-              <div className="relative h-16 w-16">
-                <Image
-                  src="/logo.png"
-                  alt="Website Vulnerability Scanner Logo"
-                  width={64}
-                  height={64}
-                  className="object-contain"
-                />
-              </div>
-            </div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              About Our Security Assessment Tool
-            </h1>
-            <p className="text-gray-600 dark:text-gray-300">Learn more about our mission to improve web security</p>
+    <div className="min-h-screen bg-[#1F2937]">
+      <div className="container mx-auto py-10 space-y-8">
+        {/* Mission Section */}
+        <section className="space-y-4">
+          <h1 className="text-3xl font-bold text-gray-100">Our Mission</h1>
+          <p className="text-lg text-gray-300">
+            At Web Vulnerability Scanner, our mission is simple — to help developers, businesses, and security enthusiasts build safer web applications.
+            We believe that security should be accessible, fast, and integrated into every stage of web development.
+          </p>
+        </section>
+
+        {/* What We Do Section */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold text-gray-100">What We Do</h2>
+          <p className="text-lg text-gray-300">
+            We provide a modern, real-time web security scanning tool that identifies common vulnerabilities in web applications.
+            Our scanner performs deep security checks like:
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-gray-300 ml-4">
+            <li>HTTP security headers analysis</li>
+            <li>SSL/TLS configuration validation</li>
+            <li>Common vulnerability detection</li>
+            <li>Sensitive information exposure checks</li>
+            <li>Server and technology stack fingerprinting</li>
+          </ul>
+          <p className="text-lg text-gray-300">
+            All results are compiled into detailed, easy-to-understand reports that empower developers to take action immediately.
+          </p>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="space-y-6">
+          <h2 className="text-2xl font-bold text-gray-100">Why Choose Us?</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="border-2 border-gray-600 bg-gray-800">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-gray-100">Real-Time Scanning</h3>
+                <p className="text-gray-300">Instantly identify potential vulnerabilities as you build.</p>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-gray-600 bg-gray-800">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-gray-100">Developer-Friendly</h3>
+                <p className="text-gray-300">Simple, clear, and actionable reports without jargon.</p>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-gray-600 bg-gray-800">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-gray-100">Built with Modern Tech</h3>
+                <p className="text-gray-300">Powered by Next.js, TypeScript, Tailwind CSS, and industry-trusted libraries.</p>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-gray-600 bg-gray-800">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-2 text-gray-100">Open and Transparent</h3>
+                <p className="text-gray-300">We encourage contributions and improvements through our open-source platform.</p>
+              </CardContent>
+            </Card>
           </div>
+        </section>
 
-          <Card className="mb-12 border-2 border-gray-200 dark:border-gray-700 shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center">
-                <Shield className="h-6 w-6 text-[#2563EB] mr-2" />
-                Why Web Security Matters
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="prose dark:prose-invert max-w-none">
-              <p>
-                In today's interconnected digital landscape, web security is more critical than ever. Websites and web
-                applications are the primary interface between organizations and their users, making them prime targets
-                for cyberattacks.
-              </p>
+        {/* Vision Section */}
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold text-gray-100">Our Vision</h2>
+          <p className="text-lg text-gray-300">
+            We aim to make proactive web security a natural part of every development workflow, creating a safer internet for everyone — one scan at a time.
+          </p>
+        </section>
 
-              <h3>The Growing Threat Landscape</h3>
-              <p>
-                Cyber threats are constantly evolving, with attackers developing increasingly sophisticated methods to
-                exploit vulnerabilities in web applications. Common threats include:
-              </p>
-              <ul>
-                <li>
-                  <strong>Injection Attacks:</strong> SQL, NoSQL, OS, and LDAP injection flaws occur when untrusted data
-                  is sent to an interpreter as part of a command or query.
-                </li>
-                <li>
-                  <strong>Broken Authentication:</strong> Authentication and session management functions are often
-                  implemented incorrectly, allowing attackers to compromise passwords, keys, or session tokens.
-                </li>
-                <li>
-                  <strong>Cross-Site Scripting (XSS):</strong> XSS flaws occur when an application includes untrusted
-                  data in a new web page without proper validation or escaping.
-                </li>
-                <li>
-                  <strong>Security Misconfigurations:</strong> Security misconfiguration is the most commonly seen
-                  issue, often resulting from insecure default configurations, incomplete configurations, or verbose
-                  error messages.
-                </li>
-              </ul>
+        {/* Quote Section */}
+        <section className="mt-12">
+          <blockquote className="text-2xl font-semibold text-center text-gray-100 italic">
+            "Fast. Reliable. Developer-friendly scanning."
+          </blockquote>
+        </section>
 
-              <h3>The Cost of Security Breaches</h3>
-              <p>The consequences of security breaches can be severe and far-reaching:</p>
-              <ul>
-                <li>
-                  <strong>Financial Loss:</strong> The average cost of a data breach is now estimated at $4.35 million
-                  globally.
-                </li>
-                <li>
-                  <strong>Reputational Damage:</strong> Loss of customer trust can have long-lasting effects on an
-                  organization's reputation and bottom line.
-                </li>
-                <li>
-                  <strong>Regulatory Penalties:</strong> Non-compliance with regulations like GDPR, HIPAA, or PCI DSS
-                  can result in significant fines.
-                </li>
-                <li>
-                  <strong>Operational Disruption:</strong> Security incidents can disrupt normal business operations,
-                  leading to downtime and lost productivity.
-                </li>
-              </ul>
+        {/* Team Section */}
+        <section className="space-y-6">
+          <h2 className="text-2xl font-bold text-gray-100">Our Team</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="border-2 border-gray-600 bg-gray-800">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-bold text-gray-100">Kushagra Gupta</h3>
+              </CardContent>
+            </Card>
 
-              <h3>Our Approach to Web Security</h3>
-              <p>
-                Our Web Server Security Assessment tool is designed to help organizations identify and address security
-                vulnerabilities before they can be exploited. By combining industry-standard tools like Nmap and Nikto
-                with a user-friendly interface, we make it easier for security professionals to:
-              </p>
-              <ul>
-                <li>Discover open ports and services that could be exploited</li>
-                <li>Identify known vulnerabilities in web servers and applications</li>
-                <li>Receive actionable recommendations for remediation</li>
-                <li>Generate comprehensive reports for stakeholders</li>
-              </ul>
+            <Card className="border-2 border-gray-600 bg-gray-800">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-bold text-gray-100">Anmol Salaria</h3>
+              </CardContent>
+            </Card>
 
-              <p>
-                Regular security assessments are a critical component of a robust security program. By proactively
-                identifying and addressing vulnerabilities, organizations can significantly reduce their risk of
-                security breaches and protect their valuable assets.
-              </p>
+            <Card className="border-2 border-gray-600 bg-gray-800">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-bold text-gray-100">Suyash Saxena</h3>
+              </CardContent>
+            </Card>
 
-              <h3>Our Free and Open Approach</h3>
-              <p>
-                We believe that web security should be accessible to everyone. That's why we've made our tool completely
-                free to use, with no registration required. Our mission is to help improve the security posture of
-                websites across the internet by providing powerful security assessment tools to all organizations,
-                regardless of size or budget.
-              </p>
-
-              <h3>Contact Us</h3>
-              <p>Have questions, feedback, or need assistance? Feel free to reach out to our team at:</p>
-              <p className="flex items-center">
-                <Mail className="h-5 w-5 text-[#2563EB] mr-2" />
-                <a href="mailto:support@webvulnscan.com" className="text-[#2563EB] hover:underline">
-                  support@webvulnscan.com
-                </a>
-              </p>
-            </CardContent>
-          </Card>
-
-          <div className="text-center mt-8">
-            <Link href="/" className="text-[#2563EB] hover:underline">
-              Back to Home
-            </Link>
+            <Card className="border-2 border-gray-600 bg-gray-800">
+              <CardContent className="p-6 text-center">
+                <h3 className="text-xl font-bold text-gray-100">Akshat Tyagi</h3>
+              </CardContent>
+            </Card>
           </div>
-        </div>
+        </section>
+
+        <Footer />
       </div>
-
-      <Footer />
     </div>
   )
 }

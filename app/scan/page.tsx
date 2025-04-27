@@ -8,14 +8,15 @@ export const metadata: Metadata = {
 
 export default function ScanPage() {
   return (
-    <div className="container mx-auto py-10">
-      <div className="flex flex-col items-center space-y-6">
-        <h1 className="text-3xl font-bold text-center">Website Security Scanner</h1>
-        <p className="text-muted-foreground text-center max-w-[600px]">
-          Enter a URL to scan for security vulnerabilities, including SSL/TLS issues,
-          missing security headers, open ports, and more.
-        </p>
-        <div className="w-full max-w-[600px]">
+    <div className="min-h-screen bg-[#1F2937]">
+      <div className="container mx-auto py-10 space-y-6">
+        <div className="text-center space-y-4">
+          <h1 className="text-3xl font-bold text-gray-100">Web Security Scanner</h1>
+          <p className="text-lg text-gray-300">
+            Enter a URL to scan for common web vulnerabilities and security misconfigurations
+          </p>
+        </div>
+        <div className="max-w-2xl mx-auto">
           <ScanForm />
         </div>
       </div>
