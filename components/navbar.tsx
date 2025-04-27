@@ -7,8 +7,9 @@ import { Sun, Moon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 import Image from "next/image"
+import { cn } from "@/lib/utils"
 
-export default function Navbar() {
+export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
@@ -30,71 +31,44 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center" onClick={closeMenu}>
-              <div className="relative h-10 w-10 mr-2">
-                <Image
-                  src="/logo.png"
-                  alt="Website Vulnerability Scanner Logo"
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                />
-              </div>
-              <span className="ml-2 text-xl font-bold text-gray-900 dark:text-white">WebVulnScan</span>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 items-center">
+        <div className="mr-4 flex">
+          <Link href="/" className="mr-6 flex items-center space-x-2">
+            <span className="font-bold">WebVulnScanner</span>
+          </Link>
+          <nav className="flex items-center space-x-6 text-sm font-medium">
+            <Link
+              href="/"
+              className={cn(
+                "transition-colors hover:text-foreground/80",
+                pathname === "/" ? "text-foreground" : "text-foreground/60"
+              )}
+            >
+              Home
             </Link>
-          </div>
-
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="flex space-x-4">
-              <NavLink href="/" active={isActive("/")} onClick={closeMenu}>
-                Home
-              </NavLink>
-              <NavLink href="/scan" active={isActive("/scan")} onClick={closeMenu}>
-                Scan
-              </NavLink>
-              <NavLink href="/about" active={isActive("/about")} onClick={closeMenu}>
-                About
-              </NavLink>
-            </div>
-
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="ml-4" aria-label="Toggle theme">
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-          </div>
-
-          <div className="flex md:hidden items-center">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="mr-2" aria-label="Toggle theme">
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-
-            <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Toggle menu">
-              {isMenuOpen ? <span className="h-6 w-6">✕</span> : <span className="h-6 w-6">☰</span>}
-            </Button>
-          </div>
+            <Link
+              href="/about"
+              className={cn(
+                "transition-colors hover:text-foreground/80",
+                pathname === "/about" ? "text-foreground" : "text-foreground/60"
+              )}
+            >
+              About
+            </Link>
+            <Link
+              href="/scan"
+              className={cn(
+                "transition-colors hover:text-foreground/80",
+                pathname === "/scan" ? "text-foreground" : "text-foreground/60"
+              )}
+            >
+              Scan
+            </Link>
+          </nav>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <MobileNavLink href="/" active={isActive("/")} onClick={closeMenu}>
-              Home
-            </MobileNavLink>
-            <MobileNavLink href="/scan" active={isActive("/scan")} onClick={closeMenu}>
-              Scan
-            </MobileNavLink>
-            <MobileNavLink href="/about" active={isActive("/about")} onClick={closeMenu}>
-              About
-            </MobileNavLink>
-          </div>
-        </div>
-      )}
-    </nav>
+    </header>
   )
 }
 

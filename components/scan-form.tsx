@@ -59,7 +59,7 @@ export function ScanForm() {
 
   return (
     <div className="space-y-6">
-      <Card className="p-6">
+      <Card className="p-6 border-2">
         <div className="space-y-4">
           <div className="space-y-2">
             <label htmlFor="url" className="text-sm font-medium">
@@ -71,12 +71,13 @@ export function ScanForm() {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               disabled={scanning}
+              className="border-2"
             />
           </div>
           <Button
             onClick={startScan}
             disabled={!url || scanning}
-            className="w-full"
+            className="w-full bg-blue-600 hover:bg-blue-700"
           >
             {scanning ? "Scanning..." : "Start Scan"}
           </Button>
@@ -84,37 +85,50 @@ export function ScanForm() {
       </Card>
 
       {scanning && (
-        <Card className="p-6">
+        <Card className="p-6 border-2">
           <div className="space-y-4">
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
                 <span className="font-medium">{currentOperation}</span>
                 <span>{progress}%</span>
               </div>
-              <Progress value={progress} />
+              <Progress value={progress} className="bg-gray-200" />
             </div>
           </div>
         </Card>
       )}
 
       {vulnerabilities.length > 0 && !scanning && (
-        <Card className="p-6">
+        <Card className="p-6 border-2">
           <div className="space-y-4">
             <h3 className="text-lg font-medium">Vulnerabilities Found</h3>
             <div className="space-y-2">
               {vulnerabilities.map((vuln) => (
                 <div
                   key={vuln.id}
-                  className={`p-4 rounded-lg ${
+                  className={`p-4 rounded-lg border ${
                     vuln.severity === 'high'
-                      ? 'bg-red-50 text-red-700'
+                      ? 'bg-[#FFE5E5] border-[#CC0000]'
                       : vuln.severity === 'medium'
-                      ? 'bg-yellow-50 text-yellow-700'
-                      : 'bg-blue-50 text-blue-700'
+                      ? 'bg-[#FFF0E1] border-[#FF8C00]'
+                      : 'bg-[#FFF9E5] border-[#FFD700]'
                   }`}
                 >
-                  <h4 className="font-medium">{vuln.name}</h4>
-                  <p className="text-sm mt-1">{vuln.description}</p>
+                  <div className="flex justify-between items-start">
+                    <h4 className="font-bold text-gray-900">{vuln.name}</h4>
+                    <span
+                      className={`px-3 py-1 rounded-full text-sm font-medium text-white ${
+                        vuln.severity === 'high'
+                          ? 'bg-[#CC0000]'
+                          : vuln.severity === 'medium'
+                          ? 'bg-[#FF8C00]'
+                          : 'bg-[#FFD700] text-gray-900'
+                      }`}
+                    >
+                      {vuln.severity.toUpperCase()}
+                    </span>
+                  </div>
+                  <p className="text-sm mt-2 text-gray-700">{vuln.description}</p>
                 </div>
               ))}
             </div>

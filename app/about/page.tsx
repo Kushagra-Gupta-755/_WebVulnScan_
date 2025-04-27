@@ -1,15 +1,12 @@
 import Link from "next/link"
 import { Shield, Mail } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import Image from "next/image"
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
-
       <div className="flex-grow bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
