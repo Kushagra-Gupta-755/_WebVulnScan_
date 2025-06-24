@@ -42,8 +42,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#1E3A8A] to-[#0F172A] py-20 px-4 md:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:60px_60px]" />
+      <section className="relative bg-gradient-to-br from-[#1E3A8A] to-[#0F172A] py-32 min-h-[60vh] px-4 md:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:80px_80px]" />
         <div className="relative max-w-5xl mx-auto text-center">
           <div className="flex justify-center mb-6">
             <div className="relative h-24 w-24">
@@ -57,11 +57,11 @@ export default function Home() {
               />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Automated Web Server Security Assessment
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
+            Web Vulnerabilty Scanner
           </h1>
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Scan & Secure Your Web Server with AI-powered Insights - 100% Free
+            Scan & Secure Your Web Server with Fast, Reliable, and Actionable Insights
           </p>
           <Button
             size="lg"

@@ -88,25 +88,23 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="border-2 border-gray-600 bg-gray-800">
               <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-100">Kushagra Gupta</h3>
+                <h3 className="text-xl font-bold text-gray-100">
+                  <Link href="https://www.linkedin.com/in/kushagra-gupta-a1b6b4291/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+                    Kushagra Gupta
+                    <Linkedin className="inline-block mt-2 h-6 w-6 text-blue-500 hover:text-blue-700" />
+                  </Link>
+                </h3>
               </CardContent>
             </Card>
 
             <Card className="border-2 border-gray-600 bg-gray-800">
               <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-100">Anmol Salaria</h3>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-gray-600 bg-gray-800">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-100">Suyash Saxena</h3>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-gray-600 bg-gray-800">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-100">Akshat Tyagi</h3>
+                <h3 className="text-xl font-bold text-gray-100">
+                  <Link href="https://www.linkedin.com/in/anmol-salaria-b2164028a/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+                    Anmol Salaria
+                    <Linkedin className="inline-block mt-2 h-6 w-6 text-blue-500 hover:text-blue-700" />
+                  </Link>
+                </h3>
               </CardContent>
             </Card>
           </div>
